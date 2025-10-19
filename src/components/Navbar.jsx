@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function Navbar({ setCurrentPage, darkMode, setDarkMode, lang, setLang }) {
+export default function Navbar({ setCurrentPage, darkMode, toggleTheme, lang, setLang }) {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -52,8 +52,23 @@ export default function Navbar({ setCurrentPage, darkMode, setDarkMode, lang, se
           </svg>
           GitHub
         </a>
-        <button onClick={() => setDarkMode(!darkMode)}>{darkMode ? "☀️" : "🌙"}</button>
-        <button onClick={() => setLang(lang === "FR" ? "EN" : "FR")}>{lang}</button>
+        
+        {/* Bouton de basculement de thème amélioré */}
+        <button className="theme-toggle" onClick={toggleTheme}>
+          <span className="theme-icon">
+            {darkMode ? '☀️' : '🌙'}
+          </span>
+          <span>{darkMode ? (lang === "FR" ? "Mode Clair" : "Light Mode") : (lang === "FR" ? "Mode Sombre" : "Dark Mode")}</span>
+        </button>
+        
+        {/* Bouton de changement de langue */}
+        {/* Bouton de changement de langue */}
+<button 
+  className="lang-toggle"
+  onClick={() => setLang(lang === "FR" ? "EN" : "FR")}
+>
+  {lang === "FR" ? "FR" : "EN"}
+</button>
       </div>
     </nav>
   );

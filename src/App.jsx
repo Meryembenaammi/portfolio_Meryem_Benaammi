@@ -15,7 +15,7 @@ import Contact from "./pages/Contact";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true); // Mode sombre par défaut
   const [lang, setLang] = useState("FR");
 
   // Initialiser AOS
@@ -23,14 +23,32 @@ function App() {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  // Appliquer la classe 'dark' sur le body pour le mode sombre
+  // Gérer le thème au chargement de l'application
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      setDarkMode(false);
+      document.body.classList.add('light');
+    } else {
+      setDarkMode(true);
+      document.body.classList.remove('light');
+    }
+  }, []);
+
+  // Appliquer le thème quand darkMode change
   useEffect(() => {
     if (darkMode) {
-      document.body.classList.add("dark");
+      document.body.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
     } else {
-      document.body.classList.remove("dark");
+      document.body.classList.add('light');
+      localStorage.setItem('theme', 'light');
     }
   }, [darkMode]);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
 
   const renderPage = () => {
     switch (currentPage) {
@@ -51,6 +69,7 @@ function App() {
         setCurrentPage={setCurrentPage}
         darkMode={darkMode}
         setDarkMode={setDarkMode}
+        toggleTheme={toggleTheme}
         lang={lang}
         setLang={setLang}
       />
