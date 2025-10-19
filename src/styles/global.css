@@ -3813,7 +3813,7 @@ body.light .issuer-logo {
     overflow: hidden;
 }
 
-/* About Me Section */
+/* About Me Section - Version corrigée avec transparence */
 .about-me-section {
     margin: 40px 0;
     position: relative;
@@ -3862,19 +3862,22 @@ body.light .issuer-logo {
 }
 
 .about-me-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+    background: rgba(255, 255, 255, 0.1); /* Plus transparent */
+    backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
 }
 
 body.light .about-me-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+    background: rgba(255, 255, 255, 0.15); /* Léger fond pour mode clair */
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .about-me-card::before {
@@ -3902,21 +3905,30 @@ body.light .about-me-card {
 
 .about-me-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+body.light .about-me-card:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .about-me-description {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #2c3e50;
+    color: rgba(255, 255, 255, 0.9); /* Texte transparent */
     margin-bottom: 30px;
     text-align: justify;
     position: relative;
     z-index: 2;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 body.light .about-me-description {
-    color: #2c3e50;
+    color: rgba(0, 0, 0, 0.8); /* Texte transparent pour mode clair */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .about-me-highlights {
@@ -3932,16 +3944,17 @@ body.light .about-me-description {
     align-items: center;
     gap: 15px;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    border: 2px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
 body.light .highlight-item {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .highlight-item::before {
@@ -3951,7 +3964,7 @@ body.light .highlight-item {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s ease;
 }
 
@@ -3961,65 +3974,74 @@ body.light .highlight-item {
 
 .highlight-item:hover {
     transform: translateY(-3px);
-    border-color: rgba(102, 126, 234, 0.3);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+}
+
+body.light .highlight-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(102, 126, 234, 0.4);
 }
 
 .highlight-icon {
     font-size: 2rem;
     animation: bounce 2s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.3));
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
 }
 
 .highlight-content h4 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: rgba(255, 255, 255, 0.9);
     margin: 0 0 5px 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 body.light .highlight-content h4 {
-    color: #2c3e50;
+    color: rgba(0, 0, 0, 0.9);
+    text-shadow: none;
 }
 
 .highlight-content p {
     font-size: 0.9rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.7);
     margin: 0;
     line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 body.light .highlight-content p {
-    color: #666;
+    color: rgba(0, 0, 0, 0.7);
+    text-shadow: none;
 }
 
 /* Dark mode styles for About Me */
 body.dark .about-me-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 body.dark .about-me-description {
-    color: #f0f0f0;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 body.dark .highlight-item {
     background: rgba(255, 255, 255, 0.08);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 body.dark .highlight-item:hover {
     background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 215, 0, 0.3);
-    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.4);
 }
 
 body.dark .highlight-content h4 {
-    color: #f0f0f0;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 body.dark .highlight-content p {
-    color: #ccc;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Responsive design for About Me */

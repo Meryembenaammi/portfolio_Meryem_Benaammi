@@ -25,11 +25,10 @@ export default function Home({ lang }) {
                 <div className="about-me-card">
                   <div className="about-me-text">
                     <p className="about-me-description">
-  {lang === "FR"
-    ? "Future ingénieure d'État en Big Data & Intelligence Artificielle, motivée par les défis technologiques et prête à contribuer à des projets innovants. Je m'épanouis dans l'univers du Big Data et de l'Intelligence Artificielle, et mon parcours académique ainsi que mes projets personnels témoignent de ma détermination à transformer les données en solutions intelligentes."
-    : "Future State Engineer in Big Data & Artificial Intelligence, driven by technological challenges and eager to contribute to innovative projects. I thrive in the world of Big Data and Artificial Intelligence, and my academic journey and personal projects demonstrate my determination to transform data into intelligent solutions."}
-</p>
-
+                      {lang === "FR"
+                        ? "Future ingénieure d'État en Big Data & Intelligence Artificielle, motivée par les défis technologiques et prête à contribuer à des projets innovants. Je m'épanouis dans l'univers du Big Data et de l'Intelligence Artificielle, et mon parcours académique ainsi que mes projets personnels témoignent de ma détermination à transformer les données en solutions intelligentes."
+                        : "Future State Engineer in Big Data & Artificial Intelligence, driven by technological challenges and eager to contribute to innovative projects. I thrive in the world of Big Data and Artificial Intelligence, and my academic journey and personal projects demonstrate my determination to transform data into intelligent solutions."}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -100,6 +99,8 @@ export default function Home({ lang }) {
           </div>
         </div>
       </section>
+
+      
     </>
   );
 }
