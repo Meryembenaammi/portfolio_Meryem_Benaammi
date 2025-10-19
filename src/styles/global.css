@@ -91,7 +91,7 @@ body {
 
 /* ======= Main ======= */
 main {
-    padding-top: 140px; /* reduced space so content starts above navbar */
+    padding-top: 100px; /* reduced space so content starts above navbar */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -111,7 +111,7 @@ main {
     display: flex;
     justify-content: flex-start;  /* align to start for full width */
     align-items: center;      /* center vertically */
-    padding: 500px 0 60px;    /* reduced top padding for better visibility */
+    padding: 40px 0 60px;    /* reduced top padding for better visibility */
     box-sizing: border-box;
     position: relative;
     overflow: visible;
