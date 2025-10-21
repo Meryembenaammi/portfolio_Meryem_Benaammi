@@ -13,10 +13,39 @@ export default function Projets({ lang }) {
       icon: "🤖",
       color: "#ff6b6b",
       status: lang === "FR" ? "Terminé" : "Completed",
-      year: "2024"
+      year: "2024",
+      githubUrl: "https://github.com/Meryembenaammi/SAMWAY-project/tree/master"
     },
     {
       id: 2,
+      title: lang === "FR" ? "Plateforme Cloud Azure pour l'Apprentissage Linguistique Intelligent" : "Azure Cloud Platform for Intelligent Language Learning",
+      description: lang === "FR" 
+        ? "Conception d'une plateforme immersive permettant l'apprentissage de plusieurs langues, intégrant les services Azure AI."
+        : "Design of an immersive platform enabling multi-language learning, integrating Azure AI services.",
+      technologies: ["Azure AI Services", "Azure Cognitive Services", "Azure Computer Vision", "Azure Speech-to-Text"],
+      category: lang === "FR" ? "Cloud Computing" : "Cloud Computing",
+      icon: "☁️",
+      color: "#feca57",
+      status: lang === "FR" ? "Terminé" : "Completed",
+      year: "2024",
+      githubUrl: "https://github.com/Meryembenaammi/applicationlinguistique/tree/master"
+    },
+    {
+      id: 3,
+      title: lang === "FR" ? "Roomiez - Plateforme de Colocation avec Reconnaissance Faciale" : "Roomiez - Roommate Platform with Facial Recognition",
+      description: lang === "FR" 
+        ? "Roomiez est une application innovante facilitant la colocation entre jeunes filles étudiantes. Elle intègre un système de gestion de présence basé sur la reconnaissance faciale, garantissant sécurité et transparence dans les espaces partagés."
+        : "Roomiez is an innovative application facilitating roommate arrangements for young female students. It integrates a presence management system based on facial recognition, ensuring security and transparency in shared spaces.",
+      technologies: ["Flask", "OpenCV", "SQLite", "HTML/CSS/JavaScript", "Python"],
+      category: lang === "FR" ? "Développement Web Full Stack" : "Full Stack Web Development",
+      icon: "🏠",
+      color: "#45b7d1",
+      status: lang === "FR" ? "Terminé" : "Completed",
+      year: "2024",
+      githubUrl: "https://github.com/Meryembenaammi/Roomiez-app"
+    },
+    {
+      id: 4,
       title: lang === "FR" ? "Application Web pour la Gestion des Affectations et Évaluations des Développeurs" : "Web Application for Developer Assignment and Evaluation Management",
       description: lang === "FR" 
         ? "Optimisation de l'attribution des développeurs aux projets selon leurs compétences, suivi de l'avancement des tâches et évaluation objective des contributions."
@@ -29,20 +58,7 @@ export default function Projets({ lang }) {
       year: "2024"
     },
     {
-      id: 3,
-      title: lang === "FR" ? "Application de Gestion des Ventes en Ligne" : "Online Sales Management Application",
-      description: lang === "FR" 
-        ? "L'application permettait l'enregistrement, la consultation et la génération de rapports sur les ventes en ligne de manière efficace."
-        : "The application enabled efficient recording, consultation and generation of online sales reports.",
-      technologies: ["JAVA", "SQL"],
-      category: lang === "FR" ? "Développement Backend" : "Backend Development",
-      icon: "💼",
-      color: "#45b7d1",
-      status: lang === "FR" ? "Terminé" : "Completed",
-      year: "2023"
-    },
-    {
-      id: 4,
+      id: 5,
       title: lang === "FR" ? "Analyse du Comportement et Émotions face au Séisme El Haouz 2023" : "Analysis of Behavior and Emotions during El Haouz 2023 Earthquake",
       description: lang === "FR" 
         ? "Analyse des données à l'aide d'un tableau de bord interactif, permettant d'explorer les tendances et de valider des hypothèses à l'aide de techniques statistiques et de visualisations graphiques."
@@ -53,19 +69,6 @@ export default function Projets({ lang }) {
       color: "#96ceb4",
       status: lang === "FR" ? "Terminé" : "Completed",
       year: "2023"
-    },
-    {
-      id: 5,
-      title: lang === "FR" ? "Plateforme Cloud Azure pour l'Apprentissage Linguistique Intelligent" : "Azure Cloud Platform for Intelligent Language Learning",
-      description: lang === "FR" 
-        ? "Conception d'une plateforme immersive permettant l'apprentissage de plusieurs langues, intégrant les services Azure AI."
-        : "Design of an immersive platform enabling multi-language learning, integrating Azure AI services.",
-      technologies: ["Azure AI Services", "Azure Cognitive Services", "Azure Computer Vision", "Azure Speech-to-Text"],
-      category: lang === "FR" ? "Cloud Computing" : "Cloud Computing",
-      icon: "☁️",
-      color: "#feca57",
-      status: lang === "FR" ? "Terminé" : "Completed",
-      year: "2024"
     },
     {
       id: 6,
@@ -97,18 +100,24 @@ export default function Projets({ lang }) {
     }
   ];
 
+  const handleProjectClick = (project) => {
+    if (project.githubUrl) {
+      window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <section className="projets-section">
       <div className="projets-container">
         <div className="projets-header">
           <h1 className="projets-title">
-            {lang === "FR" ? "Mes Projets" : "My Projects"}
+            {lang === "FR" ? "Projets Académiques" : "Academic Projects"}
           </h1>
           <div className="title-underline"></div>
           <p className="projets-subtitle">
             {lang === "FR" 
-              ? "Une sélection de mes projets académiques  dans le cadre de ma formation dans les domaines de l'IA, du développement web et de l'analyse de données" 
-              : "A selection of my academic and professional projects in AI, web development and data analysis domains"}
+              ? "Une sélection de mes projets académiques dans le cadre de ma formation dans les domaines de l'IA, du développement web et de l'analyse de données" 
+              : "A selection of my academic projects as part of my training in AI, web development and data analysis domains"}
           </p>
         </div>
 
@@ -125,7 +134,12 @@ export default function Projets({ lang }) {
 
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <div key={project.id} className="project-card" style={{'--project-color': project.color}}>
+            <div 
+              key={project.id} 
+              className={`project-card ${project.githubUrl ? 'clickable' : ''}`}
+              style={{'--project-color': project.color}}
+              onClick={() => project.githubUrl && handleProjectClick(project)}
+            >
               <div className="project-header">
                 <div className="project-icon">{project.icon}</div>
                 <div className="project-meta">
@@ -152,6 +166,13 @@ export default function Projets({ lang }) {
               </div>
               
               <div className="project-footer">
+                {project.githubUrl && (
+                  <div className="github-indicator">
+                    <span className="github-text">
+                      {lang === "FR" ? "Voir sur GitHub →" : "View on GitHub →"}
+                    </span>
+                  </div>
+                )}
                 <div className="project-glow"></div>
               </div>
             </div>

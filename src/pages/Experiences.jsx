@@ -10,7 +10,7 @@ export default function Experiences({ lang }) {
       title: lang === "FR" ? "Stage en Big Data & Business Intelligence" : "Big Data & Business Intelligence Internship",
       company: "Atlantic Smart Technology",
       location: "KENITRA, MOROCCO",
-      period: lang === "FR" ? "De juin 2025 à août 2025" : "June 2024 to August 2024",
+      period: lang === "FR" ? "De juin 2024 à août 2024" : "June 2024 to August 2024",
       type: lang === "FR" ? "Stage d'application" : "Professional Internship",
       icon: "📊",
       color: "#667eea",
@@ -33,7 +33,7 @@ export default function Experiences({ lang }) {
           ? "Formation et accompagnement des équipes sur l'utilisation des outils de Business Intelligence et l'interprétation des données"
           : "Training and support for teams on Business Intelligence tools usage and data interpretation"
       ],
-      technologies: ["Power BI", "ETL", "Data Visualization", "Business Intelligence", "SQL", "DAX", "IoT Data"]
+      technologies: ["Power BI", "ETL", "Data Visualization", "Business Intelligence", "SQL", "DAX", "GPS Data"]
     },
     {
       id: 2,
@@ -101,11 +101,11 @@ export default function Experiences({ lang }) {
   const experienceStats = [
     {
       number: "3",
-      label: lang === "FR" ? "Expériences" : "Experiences"
+      label: lang === "FR" ? "Stages" : "Internships"
     },
     {
-      number: "4+",
-      label: lang === "FR" ? "Années d'Expérience" : "Years Experience"
+      number: "12+",
+      label: lang === "FR" ? "Mois d'Expérience" : "Months Experience"
     },
     {
       number: "100%",
@@ -118,13 +118,13 @@ export default function Experiences({ lang }) {
       <div className="experiences-container">
         <div className="experiences-header">
           <h1 className="experiences-title">
-            {lang === "FR" ? "Mes Expériences" : "My Experiences"}
+            {lang === "FR" ? "Mes Stages Professionnels" : "My Professional Internships"}
           </h1>
           <div className="title-underline"></div>
           <p className="experiences-subtitle">
             {lang === "FR" 
-              ? "Mon parcours professionnel à travers différents stages dans les domaines du Big Data, de l'IA et de l'administration publique" 
-              : "My professional journey through various internships in Big Data, AI and public administration domains"}
+              ? "Mon parcours à travers différents stages dans les domaines du Big Data, de l'IA et de la transformation digitale" 
+              : "My journey through various internships in Big Data, AI and digital transformation domains"}
           </p>
         </div>
 

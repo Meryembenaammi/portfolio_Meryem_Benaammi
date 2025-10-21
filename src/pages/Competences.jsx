@@ -125,6 +125,7 @@ export default function Competences({ lang }) {
   return (
     <section className="competences-section">
       <div className="competences-container">
+        {/* Header */}
         <div className="competences-header">
           <h1 className="competences-title">
             {lang === "FR" ? "Mes Compétences" : "My Skills"}
@@ -137,6 +138,7 @@ export default function Competences({ lang }) {
           </p>
         </div>
 
+        {/* Stats Section */}
         <div className="competences-footer">
           <div className="skill-stats">
             <div className="stat-item">
@@ -154,6 +156,7 @@ export default function Competences({ lang }) {
           </div>
         </div>
 
+        {/* Skills Sections */}
         <div className="skills-sections">
           {/* Soft Skills Section */}
           <div className="skills-section soft-skills-section">
@@ -244,6 +247,80 @@ export default function Competences({ lang }) {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Languages Section */}
+        <div className="languages-section">
+          <div className="languages-header">
+            <h3 className="languages-title">
+              <span className="languages-icon">🌍</span>
+              {lang === "FR" ? "Langues Maîtrisées" : "Languages"}
+            </h3>
+            <p className="languages-subtitle">
+              {lang === "FR" 
+                ? "Communication fluide dans plusieurs langues" 
+                : "Fluent communication in multiple languages"}
+            </p>
+          </div>
+          
+          <div className="languages-grid">
+            <div className="language-card arabic">
+              <div className="language-flag">🇲🇦</div>
+              <div className="language-info">
+                <h4 className="language-name">العربية</h4>
+                <p className="language-name-en">Arabic</p>
+                <div className="language-level">
+                  <span className="level-badge native">
+                    {lang === "FR" ? "Langue maternelle" : "Native"}
+                  </span>
+                </div>
+              </div>
+              <div className="language-progress">
+                <div className="progress-bar">
+                  <div className="progress-fill" style={{width: '100%'}}></div>
+                </div>
+                <span className="progress-text">100%</span>
+              </div>
+            </div>
+
+            <div className="language-card french">
+              <div className="language-flag">🇫🇷</div>
+              <div className="language-info">
+                <h4 className="language-name">Français</h4>
+                <p className="language-name-en">French</p>
+                <div className="language-level">
+                  <span className="level-badge fluent">
+                    {lang === "FR" ? "Courant" : "Fluent"}
+                  </span>
+                </div>
+              </div>
+              <div className="language-progress">
+                <div className="progress-bar">
+                  <div className="progress-fill" style={{width: '95%'}}></div>
+                </div>
+                <span className="progress-text">95%</span>
+              </div>
+            </div>
+
+            <div className="language-card english">
+              <div className="language-flag">🇺🇸</div>
+              <div className="language-info">
+                <h4 className="language-name">English</h4>
+                <p className="language-name-en">English</p>
+                <div className="language-level">
+                  <span className="level-badge advanced">
+                    {lang === "FR" ? "Avancé" : "Advanced"}
+                  </span>
+                </div>
+              </div>
+              <div className="language-progress">
+                <div className="progress-bar">
+                  <div className="progress-fill" style={{width: '90%'}}></div>
+                </div>
+                <span className="progress-text">90%</span>
+              </div>
             </div>
           </div>
         </div>

@@ -3,6 +3,15 @@ import QRCode from "react-qr-code";
 import profilePhoto from "../assets/mee.jpg";
 
 export default function Home({ lang }) {
+  // Fonction pour télécharger le CV selon la langue
+  const handleDownloadCV = () => {
+    const cvFilename = lang === "FR" 
+      ? "/cv-meryem-ben-aammi.pdf" 
+      : "/CV_MERYEM_BEN-AAMMI (version ang ).pdf";
+    
+    window.open(cvFilename, "_blank");
+  };
+
   return (
     <>
       {/* ======= Section Accueil ======= */}
@@ -12,12 +21,12 @@ export default function Home({ lang }) {
           <div className="text-section">
             <h1>Meryem Ben-aammi</h1>
 
-            {/* === À propos de moi === */}
+            {/* === À propos de moi - Version Concise === */}
             <div className="about-me-section">
               <div className="about-me-header">
                 <div className="about-me-icon">✨</div>
                 <h2 className="about-me-title">
-                  {lang === "FR" ? "À Propos de Moi" : "About Me"}
+                  {lang === "FR" ? "Qui suis-je ?" : "Who am I?"}
                 </h2>
               </div>
 
@@ -26,21 +35,59 @@ export default function Home({ lang }) {
                   <div className="about-me-text">
                     <p className="about-me-description">
                       {lang === "FR"
-                        ? "Future ingénieure d'État en Big Data & Intelligence Artificielle, motivée par les défis technologiques et prête à contribuer à des projets innovants. Je m'épanouis dans l'univers du Big Data et de l'Intelligence Artificielle, et mon parcours académique ainsi que mes projets personnels témoignent de ma détermination à transformer les données en solutions intelligentes."
-                        : "Future State Engineer in Big Data & Artificial Intelligence, driven by technological challenges and eager to contribute to innovative projects. I thrive in the world of Big Data and Artificial Intelligence, and my academic journey and personal projects demonstrate my determination to transform data into intelligent solutions."}
+                        ? "Je suis Meryem Ben-aammi. Passionnée par la technologie depuis toujours, j'aime comprendre les mécanismes derrière chaque innovation. Curieuse de nature, je ne me contente pas de savoir 'comment' ça marche, mais surtout 'pourquoi' ça marche. Résoudre des problèmes complexes est pour moi une véritable source de motivation."
+                        : "I am Meryem Ben-aammi. Passionate about technology since forever, I love understanding the mechanisms behind every innovation. Naturally curious, I'm not satisfied with just knowing 'how' it works, but especially 'why' it works. Solving complex problems is a real source of motivation for me."}
                     </p>
+
+                    <p className="about-me-description">
+                      {lang === "FR"
+                        ? "Étudiante en génie informatique, spécialisée Big Data et Intelligence Artificielle. Je me forme aux technologies qui transforment notre monde."
+                        : "Computer engineering student, specializing in Big Data and Artificial Intelligence. I'm training in technologies that transform our world."}
+                    </p>
+                    
+                    <div className="passion-highlights">
+                      <div className="passion-item">
+                        <span className="passion-emoji">❤️</span>
+                        <span className="passion-text">
+                          {lang === "FR" 
+                            ? "J'aime : Résoudre des problèmes & créer des solutions" 
+                            : "I love: Solving problems & creating solutions"}
+                        </span>
+                      </div>
+                      <div className="passion-item">
+                        <span className="passion-emoji">🚀</span>
+                        <span className="passion-text">
+                          {lang === "FR" 
+                            ? "Ma passion : Data Science & Intelligence Artificielle" 
+                            : "My passion: Data Science & Artificial Intelligence"}
+                        </span>
+                      </div>
+                      <div className="passion-item">
+                        <span className="passion-emoji">🎯</span>
+                        <span className="passion-text">
+                          {lang === "FR" 
+                            ? "Objectif : Développer des solutions IA innovantes" 
+                            : "Goal: Develop innovative AI solutions"}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* === Objectif actuel === */}
-            <h3>{lang === "FR" ? "Objectif actuel" : "Current Goal"}</h3>
-            <p>
-              {lang === "FR"
-                ? "Recherche un stage de fin d'études (PFE) de 6 mois à partir de janvier pour développer mon expertise."
-                : "Looking for a 6-month end-of-study internship starting in January to develop my expertise."}
-            </p>
+            <div className="current-goal-section">
+              <h3>
+                <span className="goal-icon">🎯</span>
+                {lang === "FR" ? "Prochain Défi" : "Next Challenge"}
+              </h3>
+              <p className="goal-description">
+                {lang === "FR"
+                  ? "Recherche un stage de fin d'études (PFE) de 6 mois à partir de janvier 2026 pour appliquer mes compétences en Big Data et IA."
+                  : "Looking for a 6-month end-of-study internship (PFE) starting January 2026 to apply my Big Data and AI skills."}
+              </p>
+            </div>
 
             {/* === Contact & QR Code === */}
             <div className="contact-qr-container">
@@ -74,9 +121,7 @@ export default function Home({ lang }) {
             <div className="cv-download-section">
               <button
                 className="cv-download-btn"
-                onClick={() =>
-                  window.open("/cv-meryem-ben-aammi.pdf", "_blank")
-                }
+                onClick={handleDownloadCV}
               >
                 <div className="btn-icon">📄</div>
                 <span>
@@ -89,8 +134,8 @@ export default function Home({ lang }) {
             </div>
           </div>
 
-          {/* === Section Photo === */}
-          <div className="photo-section">
+          {/* === Section Photo - Déplacée un peu en haut === */}
+          <div className="photo-section" style={{ marginTop: '-650px' }}>
             <img
               src={profilePhoto}
               alt="Meryem Ben-aammi"
@@ -99,8 +144,6 @@ export default function Home({ lang }) {
           </div>
         </div>
       </section>
-
-      
     </>
   );
 }
